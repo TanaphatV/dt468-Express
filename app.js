@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require('body-parser')
 const app = express();
 const port = process.env.PORT || 3000;
 const pgp = require('pg-promise')(/* options */)
@@ -22,6 +23,11 @@ app.listen(port, () => {
     console.log(`My Example app listening on port ${port}`)
 })
 
+app.use(bodyParser.json())
+app.use(
+ bodyParser.urlencoded({
+  extended: true,
+ }))
 
 app.post('/student', (req, res) => {
     console.log('Got body:', req.body);
