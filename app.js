@@ -42,7 +42,7 @@ app.get('/top3', (req, res) => {
     })
     .catch((error) => {
       console.log('ERROR:', error)
-      res.send("ERROR: can't get data " + error.message)
+      res.send("ERROR: can't get data ")
     })
 })
 
